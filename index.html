@@ -4,63 +4,17 @@
   <meta charset="UTF-8">
   <title>Swahili-Time</title>
   <style>
-    /* Muundo wa ukurasa mzima */
-    body { 
-      font-family: Arial, sans-serif; 
-      margin: 0; 
-      padding: 0; 
-      min-height: 100vh; 
-      display: flex; 
-      flex-direction: column; 
-    }
+    body { font-family: Arial, sans-serif; margin: 0; padding: 0; min-height: 100vh; display: flex; flex-direction: column; }
+    
+    .logo-container { text-align: center; padding: 20px; }
+    .logo-container img { width: 200px; border-radius: 10px; }
 
-    /* Sehemu ya logo */
-    .logo-container {
-      text-align: center;
-      padding: 20px;
-    }
+    .content { flex: 1; text-align: center; padding-top: 20px; }
 
-    .logo-container img {
-      width: 200px;
-      border-radius: 10px;
-    }
-
-    .content {
-      flex: 1; 
-      text-align: center;
-      padding-top: 20px;
-    }
-
-    /* Muundo wa eneo la chini la menyu */
-    nav {
-      background-color: #f8f8f8;
-      padding: 30px 0;
-      border-top: 2px solid #ddd;
-    }
-
-    nav ul {
-      list-style-type: none;
-      padding: 0;
-      margin: 0;
-      display: flex;
-      justify-content: center;
-      gap: 35px; /* Nafasi kati ya button na button */
-    }
-
-    nav ul li a {
-      color: white;
-      background-color: #333;
-      padding: 20px 35px; /* Ukubwa wa button */
-      text-decoration: none;
-      border-radius: 9px; /* Kona za button */
-      font-size: 20px; /* Ukubwa wa maandishi */
-      font-weight: bold;
-      transition: background-color 0.3s;
-    }
-
-    nav ul li a:hover {
-      background-color: #555; /* Rangi ikiguswa */
-    }
+    nav { background-color: #f8f8f8; padding: 10px 0; border-top: 2px solid #ddd; }
+    nav ul { list-style-type: none; padding: 0; margin: 0; display: flex; justify-content: center; gap: 30px; }
+    nav ul li a { color: white; background-color: #333; padding: 15px 30px; text-decoration: none; border-radius: 9px; font-size: 20px; font-weight: bold; transition: background-color 0.3s; }
+    nav ul li a:hover { background-color: #555; }
   </style>
 </head>
 <body>
@@ -76,10 +30,10 @@
 
 <nav>
   <ul>
-    <li><a href="index.html">Home</a></li>
-    <li><a href="#">Video</a></li>
-    <li><a href="#">Premium</a></li>
-    <li><a href="#">About</a></li>
+    <li><a href="index.html">HOME</a></li>
+    <li><a href="video.html">VIDEO</a></li>
+    <li><a href="#">PREMIUM</a></li>
+    <li><a href="#">ABOUT</a></li>
   </ul>
 </nav>
 
