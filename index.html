@@ -4,62 +4,66 @@
   <meta charset="UTF-8">
   <title>Swahili-Time</title>
   <style>
-    body { font-family: Arial, sans-serif; margin: 0; padding: 0; }
-    
+    /* Tunatumia Flexbox ili kuifanya menu ikae chini */
+    body { 
+      font-family: Arial, sans-serif; 
+      margin: 0; 
+      padding: 0; 
+      min-height: 100vh; 
+      display: flex; 
+      flex-direction: column; 
+    }
+
+    .content {
+      flex: 1; /* Hii inafanya maudhui yajae nafasi ya juu */
+      text-align: center;
+      padding-top: 50px;
+    }
+
+    nav {
+      background-color: #f8f8f8;
+      padding: 20px 0;
+      border-top: 1px solid #ddd;
+    }
+
     nav ul {
       list-style-type: none;
       padding: 0;
-      margin: 20px 0;
+      margin: 0;
       display: flex;
       justify-content: center;
-      gap: 20px;
+      gap: 15px;
     }
 
     nav ul li a {
       color: white;
       background-color: #333;
-      padding: 10px 20px;
+      padding: 10px 15px;
       text-decoration: none;
       border-radius: 5px;
+      font-size: 14px;
     }
 
     nav ul li a:hover {
       background-color: #555;
     }
-    
-    h1, p { text-align: center; }
-<style>
-  body { 
-    font-family: Arial, sans-serif; 
-    margin: 0; 
-    padding: 0; 
-    min-height: 100vh; 
-    display: flex; 
-    flex-direction: column; 
-  }
+  </style>
+</head>
+<body>
 
-  /* Hii inasukuma maudhui yote juu na kuacha menu chini */
-  nav {
-    margin-top: auto; 
-    background-color: #f8f8f8;
-    padding: 20px 0;
-  }
+<div class="content">
+  <h1>Karibu Swahili-Time</h1>
+  <p>Enjoy New movie.</p>
+</div>
 
-  nav ul {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-  }
+<nav>
+  <ul>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="#">Video</a></li>
+    <li><a href="#">Premium</a></li>
+    <li><a href="#">About</a></li>
+  </ul>
+</nav>
 
-  nav ul li a {
-    color: white;
-    background-color: #333;
-    padding: 10px 15px;
-    text-decoration: none;
-    border-radius: 5px;
-    font-size: 14px;
-  }
-</style>
+</body>
+</html>
