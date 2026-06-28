@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <title>Swahili-Time</title>
   <style>
-    /* Tunatumia Flexbox ili kuifanya menu ikae chini */
+    /* Muundo wa ukurasa mzima */
     body { 
       font-family: Arial, sans-serif; 
       margin: 0; 
@@ -15,15 +15,16 @@
     }
 
     .content {
-      flex: 1; /* Hii inafanya maudhui yajae nafasi ya juu */
+      flex: 1; 
       text-align: center;
       padding-top: 50px;
     }
 
+    /* Muundo wa eneo la chini la menyu */
     nav {
       background-color: #f8f8f8;
-      padding: 20px 0;
-      border-top: 1px solid #ddd;
+      padding: 30px 0;
+      border-top: 2px solid #ddd;
     }
 
     nav ul {
@@ -32,20 +33,22 @@
       margin: 0;
       display: flex;
       justify-content: center;
-      gap: 15px;
+      gap: 30px; /* Nafasi kati ya button na button */
     }
 
     nav ul li a {
       color: white;
       background-color: #333;
-      padding: 10px 15px;
+      padding: 15px 30px; /* Ukubwa wa button */
       text-decoration: none;
-      border-radius: 5px;
-      font-size: 14px;
+      border-radius: 8px; /* Kona za button */
+      font-size: 18px; /* Ukubwa wa maandishi */
+      font-weight: bold;
+      transition: background-color 0.3s;
     }
 
     nav ul li a:hover {
-      background-color: #555;
+      background-color: #555; /* Rangi ikiguswa */
     }
   </style>
 </head>
