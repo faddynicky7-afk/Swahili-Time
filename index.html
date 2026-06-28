@@ -98,5 +98,39 @@
     </ul>
   </nav>
 
-</body>
+  <script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js";
+  import { getFirestore, collection, getDocs } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyApXjudKe5yRzDKgImwpUVzDeVSnFFteGk",
+    authDomain: "swahili-time.firebaseapp.com",
+    projectId: "swahili-time",
+    storageBucket: "swahili-time.firebasestorage.app",
+    messagingSenderId: "759785866658",
+    appId: "1:759785866658:web:117e800379830cc07b5efb",
+    measurementId: "G-RYCTQ0Q0PH"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const db = getFirestore(app);
+
+  async function loadMovies() {
+    const movieGrid = document.querySelector(".movie-grid");
+    const querySnapshot = await getDocs(collection(db, "Movies"));
+    movieGrid.innerHTML = ""; 
+    querySnapshot.forEach((doc) => {
+      const movie = doc.data();
+      movieGrid.innerHTML += `
+        <div class="movie-card">
+          <a href="video.html">
+            <img src="${movie.imageUrl}" alt="${movie.Title}">
+            <h3>${movie.Title}</h3>
+          </a>
+        </div>
+      `;
+    });
+  }
+  loadMovies();
+  </script> 
 </html>
