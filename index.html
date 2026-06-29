@@ -118,8 +118,7 @@
   async function loadMovies() {
     const movieGrid = document.querySelector(".movie-grid");
     const querySnapshot = await getDocs(collection(db, "Movies"));
-    movieGrid.innerHTML = ""; 
-    querySnapshot.forEach((doc) =>  
+    movieGrid.innerHTML = "";      
 querySnapshot.forEach((doc) => {
   const movie = doc.data();
   movieGrid.innerHTML += `
