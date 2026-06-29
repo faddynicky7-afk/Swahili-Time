@@ -119,16 +119,18 @@
     const movieGrid = document.querySelector(".movie-grid");
     const querySnapshot = await getDocs(collection(db, "Movies"));
     movieGrid.innerHTML = ""; 
-    querySnapshot.forEach((doc) => {
-      const movie = doc.data();
-      movieGrid.innerHTML += `
-        <div class="movie-card">
-          <a href="video.html">
-            <img src="${movie.imageUrl}" alt="${movie.Title}">
-            <h3>${movie.Title}</h3>
-          </a>
-        </div>
-      `;
+    querySnapshot.forEach((doc) =>  
+querySnapshot.forEach((doc) => {
+  const movie = doc.data();
+  movieGrid.innerHTML += `
+    <div class="movie-card">
+      <a href="video.html?id=${doc.id}">
+        <img src="${movie.imageUrl}" alt="${movie.Title}">
+        <h3>${movie.Title}</h3>
+      </a>
+    </div>
+  `;
+});
     });
   }
   loadMovies();
