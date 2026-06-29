@@ -1,15 +1,19 @@
 <!DOCTYPE html>
-<html>
+<html lang="sw">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Swahili Time - Inacheza...</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; padding: 20px; }
+        #video-player { max-width: 800px; width: 100%; border-radius: 8px; background: #000; }
+    </style>
 </head>
 <body>
+
     <h1 id="movie-title">Inapakia filamu...</h1>
-    
-    <video id="video-player" controls width="100%" height="auto">
-        <source src="" type="video/mp4">
-        Browser yako haitumii video tag.
-    </video>
+
+    <video id="video-player" controls width="100%" height="auto" src=""></video>
 
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js";
@@ -28,11 +32,17 @@
         const app = initializeApp(firebaseConfig);
         const db = getFirestore(app);
 
+        // Kusoma ID ya filamu kutoka kwenye URL (mfano: video.html?id=xyz)
         const urlParams = new URLSearchParams(window.location.search);
         const movieId = urlParams.get('id');
 
         async function loadVideo() {
-            if (movieId) {
+            if (!movieId) {
+                document.getElementById("movie-title").innerText = "Filamu haikupatikana!";
+                return;
+            }
+
+            try {
                 const docRef = doc(db, "Movies", movieId);
                 const docSnap = await getDoc(docRef);
 
@@ -40,13 +50,19 @@
                     const movie = docSnap.data();
                     document.getElementById("movie-title").innerText = movie.Title;
                     
-                    // Hapa tunaweka source ya video moja kwa moja kutoka Cloudinary
+                    // Hapa tunaweka link ya video moja kwa moja
                     const videoPlayer = document.getElementById("video-player");
-                    videoPlayer.src = movie.Videosource;
-                    videoPlayer.load(); // Inabidi i-load tena baada ya kubadilisha src
+                    videoPlayer.src = movie.Videosource; 
+                    videoPlayer.load();
+                } else {
+                    document.getElementById("movie-title").innerText = "Filamu haipo kwenye database!";
                 }
+            } catch (error) {
+                console.error("Hitilafu:", error);
+                document.getElementById("movie-title").innerText = "Imeshindikana kupakia data.";
             }
         }
+
         loadVideo();
     </script>
 </body>
