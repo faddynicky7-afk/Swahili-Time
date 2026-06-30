@@ -42,8 +42,9 @@
                 return;
             }
 
-            try {
-                const docRef = doc(db, "Movies", movieId);
+            try  
+console.log("Natafuta ID kwenye database:", movieId);
+const docRef = doc(db, "Movies", movieId); 
                 const docSnap = await getDoc(docRef);
 
                 if (docSnap.exists()) {
@@ -52,7 +53,7 @@
                     
                     // Hapa tunaweka link ya video moja kwa moja
                     const videoPlayer = document.getElementById("video-player");
-                    videoPlayer.src = movie.Videosource; 
+                    videoPlayer.src = movie.Videosource;
                     videoPlayer.load();
                 } else {
                     document.getElementById("movie-title").innerText = "ID haipo: " + movieId;
