@@ -55,7 +55,7 @@
                     videoPlayer.src = movie.Videosource; 
                     videoPlayer.load();
                 } else {
-                    document.getElementById("movie-title").innerText = "Filamu haipo kwenye database!";
+                    document.getElementById("movie-title").innerText = "ID haipo: " + movieId;
                 }
             } catch (error) {
                 console.error("Hitilafu:", error);
