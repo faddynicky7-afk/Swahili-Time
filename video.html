@@ -12,7 +12,6 @@
 <body>
 
     <h1 id="movie-title">Inapakia filamu...</h1>
-
     <video id="video-player" controls width="100%" height="auto" src=""></video>
 
     <script type="module">
@@ -32,7 +31,6 @@
         const app = initializeApp(firebaseConfig);
         const db = getFirestore(app);
 
-        // Kusoma ID ya filamu kutoka kwenye URL (mfano: video.html?id=xyz)
         const urlParams = new URLSearchParams(window.location.search);
         const movieId = urlParams.get('id');
 
@@ -42,16 +40,15 @@
                 return;
             }
 
-            try  
-console.log("Natafuta ID kwenye database:", movieId);
-const docRef = doc(db, "Movies", movieId); 
+            try {
+                console.log("Natafuta ID kwenye database:", movieId);
+                const docRef = doc(db, "Movies", movieId);
                 const docSnap = await getDoc(docRef);
 
                 if (docSnap.exists()) {
                     const movie = docSnap.data();
                     document.getElementById("movie-title").innerText = movie.Title;
                     
-                    // Hapa tunaweka link ya video moja kwa moja
                     const videoPlayer = document.getElementById("video-player");
                     videoPlayer.src = movie.Videosource;
                     videoPlayer.load();
@@ -63,7 +60,6 @@ const docRef = doc(db, "Movies", movieId);
                 document.getElementById("movie-title").innerText = "Imeshindikana kupakia data.";
             }
         }
-
         loadVideo();
     </script>
 </body>
