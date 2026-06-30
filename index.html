@@ -123,8 +123,8 @@ querySnapshot.forEach((doc) => {
   const movie = doc.data();
   movieGrid.innerHTML += `
     <div class="movie-card">
-      <a href="video.html?id=${doc.id}">
-        <img src="${movie.imageUrl}" alt="${movie.Title}">
+      <a href="video.html?id=${doc.id}"
+<a href="video.html?id=${doc.id}">
         <h3>${movie.Title}</h3>
       </a>
     </div>
